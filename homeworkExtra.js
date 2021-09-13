@@ -35,6 +35,10 @@ const anagrams2 = (str, arr) => {
 
 /* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
 
+const isPolindrome = (str) =>
+  str.split(" ").join("") ===
+  str.split(" ").join("").split("").reverse().join("");
+
 /* 5. Given an integer (as parameter), return an integer which digitas are the same as the original number, but reversed.
     Ex: 189 â‡’ 981 */
 
