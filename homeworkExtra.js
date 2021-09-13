@@ -61,6 +61,22 @@ const reverseInt = (n) =>
         '####'
 */
 
+const steps = (n) => {
+  for (let i = 0; i < n; i++) {
+    let step = " ";
+
+    for (let j = 0; j < n; j++) {
+      if (j <= i) {
+        step += "#";
+      } else {
+        step += " ";
+      }
+    }
+    console.log(step);
+  }
+};
+steps(4);
+
 /* 7. Create a function that, given a string as a parameter, returns a new string which is the original string, but reversed: 
 "hello" â‡’ "olleh" */
 
