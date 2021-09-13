@@ -16,9 +16,22 @@ const maxChar = (str) => {
     Do not consider spaces or punctuation, make the whole word lower case. 
     Return `true` if the words are anagram, return `false` if they aren't. */
 
+const isAnagram = (str1, str2) =>
+  str1.split("").sort().join("") === str2.split("").sort().join("");
+
 /* 3. Given a word and a list of possible anagrams (both passed as parameters), return the correct list of anagrams: 
     Ex. "listen" is the word, ["enlist", "google", "inlets"] are the possibilities: the output should be ["enlist", "inlets"]
 */
+
+const anagrams2 = (str, arr) => {
+  const anagrams = [];
+  arr.forEach((word) => {
+    if (isAnagram(str, word)) {
+      anagrams.push(word);
+    }
+  });
+  return anagrams;
+};
 
 /* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
 
