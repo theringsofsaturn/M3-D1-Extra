@@ -80,6 +80,8 @@ steps(4);
 /* 7. Create a function that, given a string as a parameter, returns a new string which is the original string, but reversed: 
 "hello" â‡’ "olleh" */
 
+const reverseStr = (str) => str.split("").reverse().join("");
+
 /* 8. Create a function that takes an array and a "chuck size" as parameters. 
     Divide the array into subarrays with the "chunk size" as lenght: 
     array: [1, 2, 3, 4], chunk size: 2 â†’ [[ 1, 2], [3, 4]]
