@@ -1,5 +1,17 @@
 /* 1. Given a string (as a parameter), return the character that is most commonly used. */
 
+const maxChar = (str) => {
+  let max = 0;
+  let maxChar = "";
+  str.split("").forEach((char) => {
+    if (str.split(char).length > max) {
+      max = str.split(char).length;
+      maxChar = char;
+    }
+  });
+  return maxChar;
+};
+
 /* 2. Check if two strings (passed as parameters) are anagrams of each other. 
     Do not consider spaces or punctuation, make the whole word lower case. 
     Return `true` if the words are anagram, return `false` if they aren't. */
