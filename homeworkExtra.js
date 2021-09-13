@@ -88,6 +88,18 @@ const reverseStr = (str) => str.split("").reverse().join("");
     array: [1, 2, 3, 4, 5], chunk size: 4 â†’ [[ 1, 2, 3, 4], [5]]
 */
 
+const chunk = (arr, n) => {
+  const chunks = [];
+  let i = 0;
+  let length = arr.length;
+
+  while (i < length) {
+    chunks.push(arr.slice(i, (i += n)));
+  }
+  return chunks;
+};
+console.log(chunk([1, 2, 3, 4], 2));
+
 /* 9. Write a function that accepts a positive number X as parameter. 
 The function should console.log a pyramid shape with N levels built using the `#` character. 
 Example with X = 3
