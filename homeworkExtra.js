@@ -111,6 +111,16 @@ Example with X = 3
 ```
 */
 
+const pyramid = (height) => {
+  for (let i = 0; i < height; i++) {
+    // 2n+1
+    let stars = "*".repeat(2 * i + 1);
+    let spacesBefore = " ".repeat(height - i - 1);
+    console.log(spacesBefore + stars);
+  }
+};
+pyramid(4);
+
 /* 10. Write a function that accepts an integer N and returns a NxN spiral matrix:
 Ex: 
 
