@@ -1,5 +1,12 @@
-/* 1. Given a string (as a parameter), return the character that is most commonly used. */
+/* 1) MAX CHAR
 
+Given a string, return the character that is most
+commonly used in the string.
+
+--- Examples
+    maxChar("abcccccccd") === "c"
+    maxChar("apple 1231111") === "1"
+*/
 const maxChar = (str) => {
   let max = 0;
   let maxChar = "";
@@ -12,17 +19,29 @@ const maxChar = (str) => {
   return maxChar;
 };
 
-/* 2. Check if two strings (passed as parameters) are anagrams of each other. 
-    Do not consider spaces or punctuation, make the whole word lower case. 
-    Return `true` if the words are anagram, return `false` if they aren't. */
+/* 2) ANAGRAMS
 
+Check to see if two provided strings are anagrams of each other.
+One string is an anagram of another if it uses the same characters
+in the same quantity. Only consider characters, not spaces
+or punctuation.  Consider capital letters to be the same as lower case
+
+--- Examples
+  anagrams('rail safety', 'fairy tales') --> True
+  anagrams('RAIL! SAFETY!', 'fairy tales') --> True
+  anagrams('Hi there', 'Bye there') --> False
+*/
 const isAnagram = (str1, str2) =>
   str1.split("").sort().join("") === str2.split("").sort().join("");
 
-/* 3. Given a word and a list of possible anagrams (both passed as parameters), return the correct list of anagrams: 
-    Ex. "listen" is the word, ["enlist", "google", "inlets"] are the possibilities: the output should be ["enlist", "inlets"]
-*/
+/* 3) ANAGRAMS 2
 
+Given a word and a list of possible anagrams, select the correct sublist.
+
+--- Examples 
+
+    "listen" and a list of candidates like "enlists" "google" "inlets" "banana" the program should return a list containing "inlets".
+*/
 const anagrams2 = (str, arr) => {
   const anagrams = [];
   arr.forEach((word) => {
@@ -33,33 +52,59 @@ const anagrams2 = (str, arr) => {
   return anagrams;
 };
 
-/* 4. Given a string (as parameter), return `true` if the string is a palindrome or `false` if it is not. Include spaces and punctuation. */
+/* 4) PALINDROME
 
+Given a string, return true if the string is a palindrome
+or false if it is not.  Palindromes are strings that
+form the same word if it is reversed. Do include spaces
+and punctuation in determining if the string is a palindrome.
+
+--- Examples:
+
+    palindrome("abba") === true
+    palindrome("abcdefg") === false
+ */
 const isPolindrome = (str) =>
   str.split(" ").join("") ===
   str.split(" ").join("").split("").reverse().join("");
 
-/* 5. Given an integer (as parameter), return an integer which digitas are the same as the original number, but reversed.
-    Ex: 189 â‡’ 981 */
+/* 5) REVERSE INT
 
+Given an integer, return an integer that is the reverse
+ordering of numbers.
+
+--- Examples
+
+    reverseInt(15) === 51
+    reverseInt(981) === 189
+    reverseInt(500) === 5
+    reverseInt(-15) === -51
+    reverseInt(-90) === -9
+ */
 const reverseInt = (n) =>
   parseFloat(n.toString().split("").reverse().join("")) * Math.sign(n);
 
-/* 6. Write a function that takes a positive number X as a parameter. The function should output (as console.log) a step shaped string with X level usign the `#` character. Make sure the steps are on the right hand side:
+/* 6) STEPS
 
-	2 steps:
+Write a function that accepts a positive number N.
+The function should console log a step shape
+with N levels using the # character.  Make sure the
+step has spaces on the right hand side!
+
+--- Examples
+
+    steps(2)
         '# '
         '##'
-    3 steps:
+    steps(3)
         '#  '
         '## '
         '###'
-    4 steps:
+    steps(4)
         '#   '
         '##  '
         '### '
-        '####'
-*/
+        '####' */
 
 const steps = (n) => {
   for (let i = 0; i < n; i++) {
@@ -77,17 +122,32 @@ const steps = (n) => {
 };
 steps(4);
 
-/* 7. Create a function that, given a string as a parameter, returns a new string which is the original string, but reversed: 
-"hello" â‡’ "olleh" */
+/* 7) REVERSE STRING
 
+Given a string, return a new string with the reversed
+order of characters
+
+--- Examples
+
+    reverse('apple') === 'leppa'
+    reverse('hello') === 'olleh'
+    reverse('Greetings!') === '!sgniteerG'
+ */
 const reverseStr = (str) => str.split("").reverse().join("");
 
-/* 8. Create a function that takes an array and a "chuck size" as parameters. 
-    Divide the array into subarrays with the "chunk size" as lenght: 
-    array: [1, 2, 3, 4], chunk size: 2 â†’ [[ 1, 2], [3, 4]]
-    array: [1, 2, 3, 4, 5], chunk size: 4 â†’ [[ 1, 2, 3, 4], [5]]
-*/
+/* 8) CHUNK
 
+Given an array and chunk size, divide the array into many subarrays
+where each subarray is of length size
+
+--- Examples
+
+    chunk([1, 2, 3, 4], 2) --> [[ 1, 2], [3, 4]]
+    chunk([1, 2, 3, 4, 5], 2) --> [[ 1, 2], [3, 4], [5]]
+    chunk([1, 2, 3, 4, 5, 6, 7, 8], 3) --> [[ 1, 2, 3], [4, 5, 6], [7, 8]]
+    chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
+    chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
+*/
 const chunk = (arr, n) => {
   const chunks = [];
   let i = 0;
@@ -100,17 +160,24 @@ const chunk = (arr, n) => {
 };
 console.log(chunk([1, 2, 3, 4], 2));
 
-/* 9. Write a function that accepts a positive number X as parameter. 
-The function should console.log a pyramid shape with N levels built using the `#` character. 
-Example with X = 3
+/* 9) PYRAMID
 
-```
- '  #  '
- ' ### '
- '#####'
-```
-*/
+Write a function that accepts a positive number N.
+The function should console log a pyramid shape
+with N levels using the # character.  Make sure the
+pyramid has spaces on both the left and right hand sides
 
+--- Examples
+
+    pyramid(1)
+        '#'
+    pyramid(2)
+        ' # '
+        '###'
+    pyramid(3)
+        '  #  '
+        ' ### '
+        '#####' */
 const pyramid = (height) => {
   for (let i = 0; i < height; i++) {
     // 2n+1
@@ -121,24 +188,27 @@ const pyramid = (height) => {
 };
 pyramid(4);
 
-/* 10. Write a function that accepts an integer N and returns a NxN spiral matrix:
-Ex: 
+/* 10) SPYRAL MATRIX
 
-N = 2
-[[1, 2],
-[4, 3]]
-N = 3
-[[1, 2, 3],
-[8, 9, 4],
-[7, 6, 5]]
-N = 4
-[[1, 2, 3, 4],
-[12, 13, 14, 5],
-[11, 16, 15, 6],
-[10,  9,  8, 7]]
+Write a function that accepts an integer N
+and returns a NxN spiral matrix.
+
+--- Examples
+
+    matrix(2)
+        [[1, 2],
+        [4, 3]]
+    matrix(3)
+        [[1, 2, 3],
+        [8, 9, 4],
+        [7, 6, 5]]
+    matrix(4)
+        [[1, 2, 3, 4],
+        [12, 13, 14, 5],
+        [11, 16, 15, 6],
+        [10,  9,  8, 7]]
 
 */
-
 const matrix = (n) => {
   const results = [];
   for (let i = 0; i < n; i++) {
